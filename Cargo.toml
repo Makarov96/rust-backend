@@ -1,0 +1,30 @@
+[package]
+name = "steven-page-backend"
+version = "0.1.0"
+edition = "2021"
+
+
+[workspace]
+members = [".", "entity", "migration"]
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+axum = "0.7.2"
+chrono = "0.4.31"
+sea-orm = { version = "0.12.10", features = [
+    "sqlx-postgres",
+
+    "macros",
+    "runtime-tokio-rustls",
+] }
+
+serde = { version = "1.0.193", features = ["derive"] }
+
+serde_json = "1.0.108"
+tokio = { version = "1.35.1", features = ["full"] }
+
+uuid = { version = "1.6.1", features = ["v4"] }
+
+whatsapp-cloud-api = "0.3.1"
+entity = { path = "entity" }
+migration = { path = "migration" }
