@@ -8,7 +8,7 @@ use crate::{
     database::database_manager::{close_conecction, database_conf},
 };
 
-pub async fn create_service(payload: ServiceModel) -> bool {
+pub async fn insert_service(payload: ServiceModel) -> bool {
     let service_model = services::ActiveModel {
         uuid: Set(Uuid::new_v4()),
         detail: Set(payload.details.to_owned()),
@@ -18,6 +18,7 @@ pub async fn create_service(payload: ServiceModel) -> bool {
     };
     let db = database_conf().await;
     let response = service_model.insert(&db).await.unwrap();
+    print!("{:?}", response);
     close_conecction().await;
 
     true

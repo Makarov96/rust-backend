@@ -2933,7 +2933,9 @@ version = "0.1.0"
 dependencies = [
  "axum",
  "chrono",
+ "dotenvy",
  "entity",
+ "lazy_static",
  "migration",
  "sea-orm",
  "serde",

@@ -1,9 +1,9 @@
-use sea_orm::{ActiveModelTrait, Database, DatabaseConnection, Set};
+use sea_orm::{Database, DatabaseConnection};
+
+use crate::core::enviroments::Enviroment;
 
 pub async fn database_conf() -> DatabaseConnection {
-    let db: DatabaseConnection = Database::connect("postgresql://localhost:5432/db_steven")
-        .await
-        .unwrap();
+    let db: DatabaseConnection = Database::connect(Enviroment::database_url()).await.unwrap();
 
     db
 }

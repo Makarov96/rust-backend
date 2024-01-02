@@ -28,3 +28,6 @@ uuid = { version = "1.6.1", features = ["v4"] }
 whatsapp-cloud-api = "0.3.1"
 entity = { path = "entity" }
 migration = { path = "migration" }
+
+dotenvy = "0.15.7"
+lazy_static = "1.4.0"
